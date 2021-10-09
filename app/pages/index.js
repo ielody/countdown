@@ -14,8 +14,6 @@ module.exports = async function($) {
   }
 
 
-
-
   </style>
 
 <div class="coffeeimg">
