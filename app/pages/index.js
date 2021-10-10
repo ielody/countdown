@@ -23,6 +23,7 @@ module.exports = async function($) {
   function renderQuote() {
     console.log('renderQuote')
     var quote = quotes[index++]
+    /*if() { index >= quotes.length*/
     console.log(quote)
     html('#quote', /*html */`
       ${quote.text}-<b>${quote.author}</b>
