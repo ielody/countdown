@@ -1,32 +1,45 @@
 module.exports = async function($) {
-  $.page.title = 'Caddiction - coffee countdown'
-  $.page.description = 'Count down to your morning coffee'
+  $.page.title = 'Quote break'
+  $.page.description = 'Enjoy a quote with your morning coffee'
+
+
+
+  async function loadQuotes() {
+    const endpoint = 'https://type.fit/api/quotes'
+    try {
+      const response = await fetch(endpoint)
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
+      const json = await response.json()
+      console.log(json)
+      quotes = json
+    } catch (err) {
+      console.log(err)
+      alert('Failed to fetch new quote')
+    }
+  }
+
+  function renderQuote() {
+    console.log('renderQuote')
+    var quote = quotes[index++]
+    console.log(quote)
+    html('#quote', /*html */`
+      ${quote.text}-<b>${quote.author}</b>
+    `)
+  }
 
   return /* html */`
-  <style>
 
-  .coffeeimg {
-    float: left;
-  }
+    <q id="quote"></q>
+    <button type="button" id="js-new-quote" class="new-quote button" onclick="renderQuote()">Generate a new quote</button>
 
-  .cup-text {
-    float: right;
-  }
-
-
-  </style>
-
-<div class="coffeeimg">
-  <img src="img/blackwhitecup.jpeg" alt="Black and white photo with a coffee cup" height="600" width="600">
-  </div>
-   <div class="cup-text">
-    <h1>Countdown to your next coffee</h1>
-    <p>Coffee constraints bloodflow to the brain.</p>
-    </div>
-  <button>Start countdown</button>
-
-
-
-
+    <script>
+      var quotes = []
+      var index = 0
+      ${loadQuotes}
+      ${renderQuote}
+      loadQuotes()
+    </script>
   `
 }

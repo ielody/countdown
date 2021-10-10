@@ -18,9 +18,6 @@ module.exports = async function($) {
         ${process.env.NODE_ENV == 'development' ? $.script('/js/dev.js') : ''}
       </head>
       <body>
-        <header>
-
-        </header>
         <script>
           toggleVisibility()
           setActiveLink()
@@ -28,7 +25,7 @@ module.exports = async function($) {
         <div id="flash"></div>
         <main>${$.page.content}</main>
         <footer>
-          Made by <a href="https://ielody.com">Just a girl</a>
+          Made by <a href="https://ielody.com">Ingeborg</a>
         </footer>
         <script>flash()</script>
       </body>
