@@ -23,17 +23,25 @@ module.exports = async function($) {
   function renderQuote() {
     console.log('renderQuote')
     var quote = quotes[index++]
-    /*if() { index >= quotes.length*/
+    //hvis index er stoerre enn index, velg random tall
+    if(index >= quotes.length) {
+      return Math.floor(math.random()) * (quotes.length())
+    }
+    if (quote.author == null) {
+      return Math.floor(math.random()) * (quotes.length())
+    }
+    console.log(Math.random())
     console.log(quote)
     html('#quote', /*html */`
-      ${quote.text}-<b>${quote.author}</b>
-    `)
+      <b>${quote.text}</b><br>-<i>${quote.author}</i>
+      `)
   }
 
   return /* html */`
 
     <q id="quote"></q>
     <button type="button" id="js-new-quote" class="new-quote button" onclick="renderQuote()">Generate a new quote</button>
+    <img src="img/pinkflowers.jpeg">
 
     <script>
       var quotes = []

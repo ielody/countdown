@@ -54,8 +54,7 @@ a.active {
 
 body {
   background-color: lavender;
-  margin: 0;
-  max-width: 600px;
+  background-image: url("img/pinkflowers.jpeg");
 }
 
 .quoteimg {
@@ -69,33 +68,35 @@ body {
 .quote-text {
   text-align: center;
   position: absolute;
-  top: 30%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
   font-family: Helvetica;
 }
 
-#quoteDisplay {
+#quote {
+  font-size: 2em;
   text-align: center;
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
+  word-break: break-word;
 }
 
-button {
+#js-new-quote {
   color: lavender;
   background-color: purple;
   border-radius: 0%;
   text-align: center;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-button:hover {
+#js-new-quote:hover {
   background-color: hotpink;
 }

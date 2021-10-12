@@ -24,9 +24,7 @@ module.exports = async function($) {
         </script>
         <div id="flash"></div>
         <main>${$.page.content}</main>
-        <footer>
-          Made by <a href="https://ielody.com">Ingeborg</a>
-        </footer>
+
         <script>flash()</script>
       </body>
     </html>
